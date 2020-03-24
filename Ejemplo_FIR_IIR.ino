@@ -11,7 +11,6 @@
 int entrada=IMPULSO;// Seleccione PASO, RUIDO, IMPULSO
 int salida=FIR1;// Seleccione FIR1,FIR2,FIR3, o IIR
 const long interval = 10;           // Intervalo a medir periodico en milisegundos 100Hs=10ms
-
 void setup() {
   // put your setup code here, to run once:
 Inicializar_ADC_PWM_Serial();
