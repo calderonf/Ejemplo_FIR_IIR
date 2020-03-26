@@ -4,7 +4,7 @@
 2. Cambie entrada a {RUIDO,PASO,IMPULSO} para simular una señal de entrada
 3. Cambie salida a {FIR1,FIR2,FIR3, IIR} para comparar diferentes implementaciones de funciones
 4. Abra en: ->Herramientas -> monitor serie. o ->Herramientas -> "Serial Plotter"
-*/
+5. */
 #define MEDIRTIEMPOS 0//Cambiar a 1 y abrir el monitor serial "de la grafica no se aprecia mucho ya que la columna del centro está en microsegundos"
 #define MOSTRARENTRADA 1// cambiar a 1 para mostrar la entrada
 #define MUESTRASPASOIMPULSO 100// numero de muestras antes de resetear la respuesta paso e impulso, subir en sistemas lentos
