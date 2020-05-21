@@ -11,8 +11,8 @@
           Calcule o experimente usted mismo la normalización necesaria en los filtros que usted diseñe.
 */
 /*
-Primera parte del taller:
-para todos los filtros Fs=100Hz,
+Primera parte del taller/parcial:
+para todos los filtros Fs=100Hz.
 
 Diseñar un filtro FIR paso bajo de orden dado por la aplicación anexa, con Fs=100, y corte en (3 dB) a 10Hz. OJO es 3 dB no 6 dB
 Diseñar un filtro FIR paso altos de orden dado por la aplicación anexa, con Fs=100, y corte en (3 dB) a 20 Hz. OJO es a 3 dB
@@ -22,8 +22,7 @@ Para los dos filtros FIR:
 a)  Seleccionar la menor cuantización o tamaño de palabra de numerador, de tal manera que el error de cuantización 
     se encuentre siempre por debajo de 60 dB para todas las frecuencias (round-off noise power spectrum)
 b)  Seleccionar 10 bits de tamaño de palabra de entrada.
-c)  Usar el método de ventanas. experimente con varias,
-d)  
+c)  Usar el método de ventanas. experimente con varias, 
 
 Para el IIR:
 a)  No olvidar convertir en una sola sección "Edit-> Conver to single section"
