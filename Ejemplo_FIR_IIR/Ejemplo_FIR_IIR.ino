@@ -12,7 +12,7 @@
 */
 /*
 Primera parte del taller/parcial:
-para todos los filtros Fs=100Hz.
+para todos los filtros Fs=100Hz,
 
 Diseñar un filtro FIR paso bajo de orden dado por la aplicación anexa, con Fs=100, y corte en (3 dB) a 10Hz. OJO es 3 dB no 6 dB
 Diseñar un filtro FIR paso altos de orden dado por la aplicación anexa, con Fs=100, y corte en (3 dB) a 20 Hz. OJO es a 3 dB
@@ -22,7 +22,8 @@ Para los dos filtros FIR:
 a)  Seleccionar la menor cuantización o tamaño de palabra de numerador, de tal manera que el error de cuantización 
     se encuentre siempre por debajo de 60 dB para todas las frecuencias (round-off noise power spectrum)
 b)  Seleccionar 10 bits de tamaño de palabra de entrada.
-c)  Usar el método de ventanas. experimente con varias, 
+c)  Usar el método de ventanas. experimente con varias,
+d)  
 
 Para el IIR:
 a)  No olvidar convertir en una sola sección "Edit-> Conver to single section"
@@ -44,15 +45,15 @@ extern "C" {
 
 /*Definiciones del precompilador*/
 #define MEDIRTIEMPOS 0//Cambiar a 1 y abrir el monitor serial "de la grafica no se aprecia mucho ya que la columna del centro está en microsegundos"
-#define MOSTRARENTRADA 1// cambiar a 1 para mostrar la entrada
+#define MOSTRARENTRADA 0// cambiar a 1 para mostrar la entrada
 #define PERIODOSENAL 100// numero de muestras antes de resetear la respuesta paso e impulso, subir en sistemas lentos
 
 /*Variables globales de configuración*/
-#define ENTRADA PASO // Seleccione IMPULSO, PASO, COSENO, PERSONAL, ACUMULAR ver generador.h
+#define ENTRADA IMPULSO // Seleccione IMPULSO, PASO, COSENO, PERSONAL, ACUMULAR ver generador.h
 //Si selecciona FIR# y IMPULSO o PASO use ENTERA8BITS en la funcion inicializarGenerador para suponer  una entrada con punto fijo a la izquierda del bit 8
 //Si selecciona IIR  y IMPULSO o PASO  use UNITARIA en la funcion inicializarGenerador
 #define FRECUENCIA 1 // se usa si se selecciona entrada COSENO puede ser un numero de 1 a 50
-#define SALIDA FIR1 // Seleccione FIR1,FIR2,FIR3, o IIR ver funciones.h
+#define SALIDA IIR // Seleccione FIR1,FIR2,FIR3, o IIR ver funciones.h
 const long interval = 10;           // Intervalo a medir periodico en milisegundos 100Hz=10ms esto asegura una simulación de un tiempo de muestreo
 
 
@@ -93,7 +94,7 @@ void setup() {
   float den[3] = {1,-1.56101810932159423828125,0.641351521015167236328125}; // ponga aquí su denominador, por defecto para ejemplo                       {1,   0, -1}
   float w[3] = {0, 0, 0};// condición inicial punto intermedio,  por defecto para ejemplo                   {0, 0, 0}
   inicializar_iir_2_ord(num, den, w, &ir);
-  inicializarGenerador(&generar, ENTRADA, ENTERA8BITS, PERIODOSENAL,FRECUENCIA); /*si es iir use UNITARIA si es FIR use ENTERA8BITS para usar paso o impulso de 0 a 255*/
+  inicializarGenerador(&generar, ENTRADA, UNITARIA, PERIODOSENAL,FRECUENCIA); /*si es iir use UNITARIA si es FIR use ENTERA8BITS para usar paso o impulso de 0 a 255*/
   if (MOSTRARENTRADA)
   {
     Serial.print("Entrada");

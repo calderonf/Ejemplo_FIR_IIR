@@ -29,17 +29,14 @@ int generadorSenal(generador* gen)
     case PASO:
       if (gen->cont > gen->periodo)
       {
-        gen->temp=!(gen->temp);
-        gen->cont=0;
-      }
-        if (gen->temp)
+        gen->cont = 0;
+        if (walk)
           walk = 0;
-        else {
-          if (gen->salida == UNITARIA)
-            walk = 1; // para el filtro IIR la respuesta impulso es de una unidad pr eso es SINNORMALIZAR
-          else
-            walk = 256; // para el filtro FIR la respuesta impulso es de 256 ya que esta escalizada, mire al final de las funciones FIR# que se hace un corrimiento de 8 bits 2^8-1=256
-        }
+        else if (gen->salida == UNITARIA)
+          walk = 1; // para el filtro IIR la respuesta impulso es de una unidad pr eso es SINNORMALIZAR
+        else
+          walk = 256; // para el filtro FIR la respuesta impulso es de 256 ya que esta escalizada, mire al final de las funciones FIR# que se hace un corrimiento de 8 bits 2^8-1=256
+      }
       gen->cont++;
       break;
     case PERSONAL:

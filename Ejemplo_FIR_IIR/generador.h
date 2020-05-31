@@ -23,7 +23,6 @@ typedef struct generador {// este va a ser el nombre de la estructura
   int periodo;
   int personal;
   char error;
-  char temp;
   
 } generador;// este va a ser el nombre del typedef
 
