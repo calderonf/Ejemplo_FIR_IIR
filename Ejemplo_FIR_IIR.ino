@@ -48,7 +48,7 @@ extern "C" {
 #define PERIODOSENAL 100// numero de muestras antes de resetear la respuesta paso e impulso, subir en sistemas lentos
 
 /*Variables globales de configuración*/
-#define ENTRADA PASO // Seleccione IMPULSO, PASO, COSENO, PERSONAL, ACUMULAR ver generador.h
+#define ENTRADA IMPULSO // Seleccione IMPULSO, PASO, COSENO, PERSONAL, ACUMULAR ver generador.h
 //Si selecciona FIR# y IMPULSO o PASO use ENTERA8BITS en la funcion inicializarGenerador para suponer  una entrada con punto fijo a la izquierda del bit 8
 //Si selecciona IIR  y IMPULSO o PASO  use UNITARIA en la funcion inicializarGenerador
 #define FRECUENCIA 1 // se usa si se selecciona entrada COSENO puede ser un numero de 1 a 50
