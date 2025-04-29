@@ -45,7 +45,7 @@ const char B[BL] = {
 /*Inicio de variables volatiles para pasar datos entre funciones*/
 volatile int x[BL];
 volatile int k=0;
-
+/* An old version that is functional but a little more difficult to understand
 long filtrarFIR1(int in)
 {
   int i = 1;
@@ -58,6 +58,22 @@ long filtrarFIR1(int in)
 
   k = (k + 1) % BL;
   return y>>8 ; //si no es multiplo de 2^n divida por el factor de normalización adecuado a su filtro.
+}*/
+
+long filtrarFIR1(int in)
+{
+  int i;
+  x[k] = in;
+  long y = 0;
+  int index = k;
+
+  for (i = 0; i < BL; i++) {
+    y += (long)B[i] * (long)x[index];
+    index = (index == 0) ? BL - 1 : index - 1;
+  }
+
+  k = (k + 1) % BL;
+  return y >> 8; // Ajuste por factor de escala del filtro (256)
 }
 
 long filtrarFIR2(int in)
